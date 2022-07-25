@@ -1,12 +1,19 @@
 Package: farsutils
-Title: What the Package Does (One Line, Title Case)
+Title: Convenience functions to read, summarize and plot accident data from yearly FARS data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Carolyn", "WH", , "carolynwh@example.com", role = c("aut", "cre"))
+Description: Utilities to read, summarize and plot accident data from yearly accident data from
+             the Highway Traffic Safety Adminitration Fatality Analysis Reporting System FARS.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Depends: 
+    magrittr,dplyr,readr,tidyr,maps,graphics
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

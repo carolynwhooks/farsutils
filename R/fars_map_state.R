@@ -1,4 +1,4 @@
-#'fars_map_state(state.num, year)
+#' fars_map_state(state.num, year)
 #'
 #' @description
 #'
@@ -17,24 +17,25 @@
 #'
 #' Usage
 #'
-#' @importFrom dplyr filter
-#' @importFrom maps map
-#' @importFrom graphics points
 #'
-#' fars_read_years(years)
+#' fars_map_state(state.num,year)
 #'
-#' Arguments
+#' @importFrom magrittr %>%
+#'
+#'
+#' @import maps graphics
+#'
+#' @param state.num - numeric identifier for state
 #'
 #' @param year - a calendar year
 #'
 #' @return plot of state which maps accidents for the chosen year
 #'
 #' @examples
+#'\dontrun{
+#'fars_map_state(1,2013)
+#'}
 #'
-#' \dontrun{
-#'  fars_map_state(1,2013)
-#'  fars_map_state(2,2015)
-#' }
 #'
 #' @export
 fars_map_state <- function(state.num, year) {
@@ -44,7 +45,7 @@ fars_map_state <- function(state.num, year) {
 
   if(!(state.num %in% unique(data$STATE)))
     stop("invalid STATE number: ", state.num)
-  data.sub <- dplyr::filter(data, STATE == state.num)
+  data.sub <- dplyr::filter(data, .data$STATE == state.num)
   if(nrow(data.sub) == 0L) {
     message("no accidents to plot")
     return(invisible(NULL))

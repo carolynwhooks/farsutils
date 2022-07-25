@@ -17,12 +17,8 @@
 #' @returns filename as character string
 #'
 #' @examples
-#'
-#' \dontrun
-#' {
 #'    make_filename(2013)
 #'    make_filename(2015)
-#' }
 #'
 #' @export
 make_filename <- function(year) {

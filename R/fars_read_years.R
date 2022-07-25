@@ -5,23 +5,25 @@
 #' takes a vector of calendar years. For each year in the vector a dataframe is created for those that have data.
 #' If data is not found for a particular year NULL is returned and a warning message is printed
 #'
-#' Usage
+#' @importFrom magrittr %>%
 #'
-#' @importFrom dplyr mutate
-#' @importFrom dplyr select
+#' @import dplyr
+#' @usage
+#'
 #'
 #' fars_read_years(years)
 #'
-#' Arguments
+#'
 #'
 #' @param years - a vector of calendar years
 #'
 #' @return dataframe or NULL value
 #'
 #' @examples
-#' \dontrun{
-#'   fars_read_years(c(2013,2014,2015))
-#'  }
+#'\dontrun{
+#'   testyears <- c(2013,2014)
+#'   fars_read_years(testyears)
+#'}
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -29,8 +31,8 @@ fars_read_years <- function(years) {
     file <- make_filename(year)
     tryCatch({
       dat <- fars_read(file)
-      dplyr::mutate(dat, year = year) %>%
-        dplyr::select(MONTH, year)
+        dplyr::mutate(dat, year = year) %>%
+        dplyr::select(.data$MONTH, year)
     }, error = function(e) {
       warning("invalid year: ", year)
       return(NULL)

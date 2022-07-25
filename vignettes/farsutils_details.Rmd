@@ -1,0 +1,51 @@
+---
+title: "Details for farsutils"
+author: "C Whitehead"
+date: "2022-07-01"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Details for farsutils}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  rmarkdown.html_vignette.check_title = FALSE,
+  comment = "#>"
+)
+```
+## Load package farsutils 
+```{r load,warning=FALSE}
+suppressPackageStartupMessages(library(farsutils))
+```
+## Use make_filename(year) to generate a filename for the FARS year 2013 data
+```{r setup,warning=FALSE}
+csvFileName <- make_filename(2013)
+filePath <- system.file("extdata",csvFileName,package="farsutils",mustWork=TRUE)
+print(paste("filePath:",filePath,sep=" "))
+print(paste("Filename:",csvFileName,sep=" "))
+```
+## Use fars_read(filename) to read in FARS Yearly Accident Data (2013)
+```{r fars_read,warning=FALSE}
+data2013 <- fars_read(filePath)
+head(data2013)
+```
+## Use fars_summarize_years(years) to generate summaries for each year provided
+```{r fars_summarize,warning=FALSE}
+system.file("extdata","accident_2013.csv.bz2",package="farsutils",mustWork = TRUE)
+#fars_summarize_years(c(2013))
+```
+## Use fars_read_years(years) to read in multiple years of data
+```{r fars_read_years,warning=FALSE}
+theYears <- c(2013)
+system.file("extdata","accident_2013.csv.bz2",package="farsutils",mustWork = TRUE)
+#fars_read_years(theYears)
+```
+## Use fars_map_state(state,year) to show a map of state accidents for the year
+```{r mapState,warning=FALSE}
+system.file("extdata","accident_2013.csv.bz2",package="farsutils",mustWork = TRUE)
+#fars_map_state(1,2013)
+```

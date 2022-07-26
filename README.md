@@ -4,6 +4,10 @@
 # farsutils
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/carolynwhooks/farsutils.svg?branch=main)](https://travis-ci.com/carolynwhooks/farsutils)
+[![R-CMD-check](https://github.com/carolynwhooks/farsutils/workflows/R-CMD-check/badge.svg)](https://github.com/carolynwhooks/farsutils/actions)
 <!-- badges: end -->
 
 The goal of farsutils is to provide utilities to read, summarize and
@@ -15,7 +19,7 @@ Adminitration Fatality Analysis Reporting System FARS.
 You can install the development version of farsutils like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install_github("carolynwhooks/farsutils")
 ```
 
 ## Example
